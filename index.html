@@ -1,315 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IC3Expert - IT & Cybersecurity Solutions</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IC3Expert - IT & Cyber Security</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0d0d0d;
-      color: #f5f5f5;
-      overflow-x: hidden;
-    }
-    a {
-      color: #00bcd4;
-      text-decoration: none;
-    }
-    a:hover {
-      color: #ff9800;
-    }
-    header {
-      background: #121212cc;
-      padding: 1.2rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-    header h1 {
-      font-size: 1.5rem;
-      color: #00bcd4;
-      font-weight: 700;
-    }
-    nav a {
-      margin-left: 1.5rem;
-      font-weight: 500;
-    }
-    .btn-nav {
-      margin-left: 2rem;
-      padding: 0.6rem 1.2rem;
-      background: #00bcd4;
-      color: #121212;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .btn-nav:hover {
-      background: #ff9800;
-      color: #fff;
-    }
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 8rem 10% 5rem 10%;
-      position: relative;
-      min-height: 100vh;
-    }
-    .hero-content {
-      z-index: 2;
-    }
-    .hero h2 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      color: #ffffff;
-      font-weight: 800;
-    }
-    .hero h3 {
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      color: #ff9800;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
-    }
-    .btn-primary {
-      padding: 0.8rem 1.6rem;
-      background: #00bcd4;
-      color: #121212;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .btn-primary:hover {
-      background: #ff9800;
-      color: #fff;
-    }
-    #particles-js {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-    #globe-container {
-      width: 100%;
-      height: 400px;
-    }
-    /* Services Section */
-    .services {
-      background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
-      padding: 4rem 10%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      text-align: center;
-    }
-    .service-box {
-      background: #121212;
-      padding: 2rem;
-      border-radius: 10px;
-      border: 1px solid #222;
-      transition: transform 0.3s, border-color 0.3s;
-    }
-    .service-box:hover {
-      transform: translateY(-8px);
-      border-color: #00bcd4;
-    }
-    .service-box i {
-      font-size: 2rem;
-      color: #00bcd4;
-      margin-bottom: 1rem;
-    }
-    .service-box h4 {
-      font-size: 1.3rem;
-      margin-bottom: 0.8rem;
-      color: #fff;
-    }
-    .service-box p {
-      font-size: 0.95rem;
-      color: #ccc;
-    }
-    /* About Section */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 3rem;
-      padding: 5rem 10%;
-      background: #0f0f0f;
-    }
-    .about-text h3 {
-      color: #00bcd4;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 1px;
-    }
-    .about-text h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #fff;
-    }
-    .about-text p {
-      margin-bottom: 1.5rem;
-      color: #ccc;
-      line-height: 1.6;
-    }
-    .progress-bar {
-      background: #222;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-    .progress {
-      height: 10px;
-      background: linear-gradient(90deg, #00bcd4, #008c9e);
-      width: 0;
-      transition: width 1.5s ease-in-out;
-    }
-    .about img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0px 0px 20px rgba(0, 188, 212, 0.3);
-    }
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: #121212;
-      border-top: 1px solid #333;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
+    /* Reset + Theme */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1c1c1c; color: #f1f1f1; line-height: 1.6; }
+
+    header { background: #111; padding: 20px; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #00bcd4; font-size: 1.5rem; }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a { color: #f1f1f1; text-decoration: none; transition: color 0.3s; }
+    nav ul li a:hover { color: #00bcd4; }
+
+    /* Hero Section */
+    #hero { height: 100vh; display: flex; align-items: center; justify-content: space-between; padding: 100px 50px 50px; background: #1c1c1c; position: relative; }
+    #particles-js { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+    #hero .content { z-index: 1; max-width: 600px; }
+    #hero h2 { font-size: 2.5rem; color: #00bcd4; margin-bottom: 20px; font-weight: bold; }
+    #hero p { font-size: 1.1rem; margin-bottom: 20px; }
+    #hero a { display: inline-block; padding: 10px 20px; background: #00bcd4; color: #111; border-radius: 5px; text-decoration: none; transition: background 0.3s; font-weight: bold; }
+    #hero a:hover { background: #0097a7; }
+
+    /* Globe */
+    #globe-container { width: 400px; height: 400px; z-index: 1; }
+
+    /* Sections */
+    section { padding: 80px 20px; max-width: 1200px; margin: auto; }
+    h2 { color: #00bcd4; margin-bottom: 20px; text-align: center; }
+    .services, .about, .contact { margin-top: 40px; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .service { background: #2a2a2a; padding: 20px; border-radius: 10px; text-align: center; transition: transform 0.3s; }
+    .service:hover { transform: translateY(-5px); }
+    .service i { font-size: 2rem; margin-bottom: 10px; color: #00bcd4; }
+
+    .about { display: flex; flex-wrap: wrap; align-items: center; gap: 30px; }
+    .about img { max-width: 400px; border-radius: 15px; }
+    .about-text { flex: 1; }
+
+    /* Contact */
+    .contact form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: auto; }
+    .contact input, .contact textarea { padding: 10px; border: none; border-radius: 5px; background: #333; color: #fff; }
+    .contact button { padding: 10px; background: #00bcd4; border: none; border-radius: 5px; color: #111; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+    .contact button:hover { background: #0097a7; }
+
+    footer { background: #111; text-align: center; padding: 20px; margin-top: 50px; color: #aaa; }
+
     /* Responsive */
-    @media (max-width: 1024px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .about {
-        grid-template-columns: 1fr;
-      }
-      #globe-container {
-        height: 300px;
-      }
+    @media(max-width: 1024px) {
+      #hero { flex-direction: column; text-align: center; }
+      #globe-container { width: 300px; height: 300px; margin-top: 20px; }
+      .about { flex-direction: column; text-align: center; }
     }
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-      }
-      nav a {
-        margin: 0 0.8rem;
-      }
-      .hero h2 {
-        font-size: 2.2rem;
-      }
-      .hero h3 {
-        font-size: 1.2rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .hero h2 {
-        font-size: 1.8rem;
-      }
-      .hero h3 {
-        font-size: 1rem;
-      }
-      .hero p {
-        font-size: 0.9rem;
-      }
+    @media(max-width: 600px) {
+      header h1 { font-size: 1.2rem; }
+      nav ul { flex-direction: column; background: #111; position: absolute; top: 60px; right: 20px; padding: 10px; border-radius: 5px; display: none; }
+      nav ul.active { display: flex; }
+      nav ul li { margin: 10px 0; }
+      #hero h2 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1>IC3Expert</h1>
     <nav>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="btn-nav">Get Started</a>
+      <ul id="menu">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <div id="particles-js"></div>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h2>IT & Cyber Security</h2>
-      <h3>Stay Secure, Stay Ahead in a Connected World.</h3>
-      <p>Imagine running your business with complete digital confidence. That’s the promise of <strong>IC3Expert</strong>. We don’t just react to threats; our advanced cybersecurity solutions are engineered to predict, prevent, and neutralize the ever-evolving landscape of cyber risks. This ensures more than just security; it guarantees the operational fluidity and efficiency you need to thrive, freeing you to concentrate on growth while we expertly handle the digital frontier.</p>
-      <a href="#contact" class="btn-primary">Get Started</a>
+  <!-- Hero -->
+  <section id="hero">
+    <div id="particles-js"></div>
+    <div class="content">
+      <h2>IT & Cyber Security<br>Stay Secure, Stay Ahead in a Connected World.</h2>
+      <p>Imagine running your business with complete digital confidence. That’s the promise of IC3Expert. We don’t just react to threats; our advanced cybersecurity solutions are engineered to predict, prevent, and neutralize the ever-evolving landscape of cyber risks. This ensures more than just security; it guarantees the operational fluidity and efficiency you need to thrive, freeing you to concentrate on growth while we expertly handle the digital frontier.</p>
+      <a href="#contact">Get Started</a>
     </div>
     <div id="globe-container"></div>
   </section>
 
-  <!-- Services Section -->
-  <section class="services" id="services">
-    <div class="service-box">
-      <i class="fas fa-shield-alt"></i>
-      <h4>Privacy Protection</h4>
-      <p>End-to-end encryption, strict access controls, data minimization, and personal information are private and compliant.</p>
-    </div>
-    <div class="service-box">
-      <i class="fas fa-network-wired"></i>
-      <h4>Secure Network</h4>
-      <p>We enable secure innovation across hybrid and multi-cloud landscapes by enforcing an 'always verified' environment.</p>
-    </div>
-    <div class="service-box">
-      <i class="fas fa-bug"></i>
-      <h4>Malware Protection</h4>
-      <p>Our malware protection shuts down threats in real-time, ensuring your data and apps stay secure everywhere.</p>
-    </div>
-    <div class="service-box">
-      <i class="fas fa-cloud"></i>
-      <h4>Cloud Security</h4>
-      <p>Protecting cloud infrastructure and applications with advanced monitoring, compliance enforcement, and automated defenses.</p>
-    </div>
-    <div class="service-box">
-      <i class="fas fa-satellite-dish"></i>
-      <h4>Threat Intelligence</h4>
-      <p>Real-time intelligence and analytics to detect, track, and prevent cyber threats before they impact your business.</p>
-    </div>
-    <div class="service-box">
-      <i class="fas fa-bolt"></i>
-      <h4>Incident Response</h4>
-      <p>Rapid, expert-led response to cyber incidents, minimizing damage and ensuring business continuity.</p>
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service"><i class="fas fa-shield-alt"></i><h3>Threat Prevention</h3><p>Proactive defense systems designed to neutralize cyber risks before they strike.</p></div>
+      <div class="service"><i class="fas fa-lock"></i><h3>Data Protection</h3><p>End-to-end encryption and secure storage solutions to safeguard sensitive data.</p></div>
+      <div class="service"><i class="fas fa-network-wired"></i><h3>Network Security</h3><p>Robust monitoring and intrusion detection to keep your infrastructure safe.</p></div>
+      <div class="service"><i class="fas fa-user-shield"></i><h3>Consulting</h3><p>Expert advice tailored to your business needs to maintain digital resilience.</p></div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div class="about-text">
-      <h3>WHO WE ARE</h3>
-      <h2>Your Trusted Partner in Cyber Defense</h2>
-      <p>Certified Cyber Protector | Trusted Security Partner. At <strong>IC3Expert</strong>, we deliver resilient protection and trusted defense strategies to safeguard your digital world.</p>
-      <label>Trusted Defense</label>
-      <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
-      <label>Resilient Protection</label>
-      <div class="progress-bar"><div class="progress" style="width:85%"></div></div>
-      <a href="#contact" class="btn-primary">Get Started</a>
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about">
+      <img src="A_digital_photograph_features_a_portrait_of_an_Afr.png" alt="IT Professional">
+      <div class="about-text">
+        <p>At IC3Expert, our mission is simple: to empower businesses to operate in the digital age with confidence and security. Our team of dedicated cybersecurity professionals combines deep industry expertise with cutting-edge technology, ensuring that your digital assets remain protected against evolving cyber threats.</p>
+      </div>
     </div>
-    <div class="about-img">
-      <img src="A_digital_photograph_features_a_portrait_of_an_Afr.png" alt="IT Professional in Blue Shirt">
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact">
+      <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.');">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 IC3Expert. All rights reserved.</p>
+    <p>&copy; 2025 IC3Expert. All Rights Reserved.</p>
   </footer>
 
   <!-- Particles.js -->
@@ -317,67 +135,52 @@
   <script>
     particlesJS("particles-js", {
       particles: {
-        number: { value: 50, density: { enable: true, value_area: 800 } },
+        number: { value: 30, density: { enable: true, value_area: 600 } },
         color: { value: "#00bcd4" },
         shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: "#00bcd4", opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 2, out_mode: "out" }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: { onhover: { enable: true, mode: "repulse" } },
-        modes: { repulse: { distance: 100, duration: 0.4 } }
-      },
-      retina_detect: true
+        opacity: { value: 0.5, random: true },
+        size: { value: 2.5, random: true },
+        move: { enable: true, speed: 1.2, direction: "none", out_mode: "out" }
+      }
     });
   </script>
 
-  <!-- Three.js Globe -->
+  <!-- Optimized Globe -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   <script>
     const container = document.getElementById("globe-container");
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      45,
-      container.clientWidth / container.clientHeight,
-      0.1,
-      1000
-    );
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
-    const geometry = new THREE.SphereGeometry(5, 64, 64);
+    const geometry = new THREE.SphereGeometry(5, 32, 32);
     const material = new THREE.MeshPhongMaterial({
       color: 0x0a0a0a,
       emissive: 0x00bcd4,
-      emissiveIntensity: 0.4,
-      shininess: 100,
-      specular: 0x111111,
+      emissiveIntensity: 0.3,
       wireframe: false
     });
     const globe = new THREE.Mesh(geometry, material);
     scene.add(globe);
 
-    const ambientLight = new THREE.AmbientLight(0x404040, 2);
-    scene.add(ambientLight);
-
-    const pointLight = new THREE.PointLight(0x00bcd4, 1.2);
+    scene.add(new THREE.AmbientLight(0x404040, 1.5));
+    const pointLight = new THREE.PointLight(0x00bcd4, 1.0);
     pointLight.position.set(10, 10, 10);
     scene.add(pointLight);
 
-    camera.position.z = 15;
+    camera.position.z = 14;
 
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableZoom = false;
     controls.enablePan = false;
     controls.autoRotate = true;
-    controls.autoRotateSpeed = 1.0;
+    controls.autoRotateSpeed = 0.5;
     controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
+    controls.dampingFactor = 0.03;
 
     function animate() {
       requestAnimationFrame(animate);
