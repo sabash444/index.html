@@ -6,89 +6,231 @@
   <title>IC3Expert - IT & Cybersecurity Solutions</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* --- Reset & base --- */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background:#0d0d0d;color:#f5f5f5;overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+      background-color: #0d0d0d;
+      color: #f5f5f5;
+      overflow-x: hidden;
     }
-    a{color:#00bcd4;text-decoration:none}
-    a:hover{color:#ff9800}
-
-    /* --- Header --- */
-    header{background:#121212cc;padding:1rem 4%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #222;position:fixed;width:100%;top:0;z-index:1100}
-    header h1{font-size:1.25rem;color:#00bcd4;font-weight:700}
-    nav{display:flex;align-items:center;gap:.75rem}
-    .nav-links{display:flex;gap:1rem;align-items:center}
-    .btn-nav{padding:.5rem 1rem;background:#00bcd4;color:#121212;border-radius:6px;font-weight:700;border:none}
-    .btn-nav:hover{background:#ff9800;color:#fff}
-
-    /* hamburger */
-    .hamburger{display:none;width:36px;height:36px;border-radius:6px;border:1px solid #222;background:transparent;align-items:center;justify-content:center;cursor:pointer}
-    .hamburger span{display:block;width:18px;height:2px;background:#cfe;position:relative}
-    .hamburger span::before,.hamburger span::after{content:'';position:absolute;width:18px;height:2px;background:#cfe;left:0}
-    .hamburger span::before{top:-6px}
-    .hamburger span::after{top:6px}
-
-    /* --- Particles background covers hero only --- */
-    #particles-js{position:absolute;top:0;left:0;width:100%;height:100vh;z-index:0}
-
-    /* --- Hero --- */
-    .hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:2rem;padding:7.5rem 6% 4rem;position:relative;min-height:85vh}
-    .hero-content{z-index:2;padding-right:1rem}
-    .hero h2{font-size:2.4rem;line-height:1.05;color:#fff;font-weight:800;margin-bottom:.6rem}
-    .hero h3{font-size:1.15rem;margin-bottom:1rem;color:#ff9800;font-weight:600}
-    .hero p{font-size:1rem;color:#d3d3d3;max-width:640px;margin-bottom:1.25rem}
-    .btn-primary{padding:.7rem 1.4rem;background:#00bcd4;color:#121212;border-radius:8px;font-weight:700;border:none}
-
-    #globe-container{width:100%;height:360px;max-width:560px;margin:0 auto;z-index:1}
-
-    /* --- Services --- */
-    .services{background:linear-gradient(180deg,#0d0d0d,#1a1a1a);padding:3rem 6%;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
-    .service-box{background:#121212;padding:1.5rem;border-radius:12px;border:1px solid #222;transition:transform .28s ease,border-color .28s}
-    .service-box:hover{transform:translateY(-8px);border-color:#00bcd4}
-    .service-box i{font-size:1.6rem;color:#00bcd4;margin-bottom:.6rem}
-    .service-box h4{font-size:1.05rem;margin-bottom:.5rem}
-    .service-box p{color:#c9c9c9;font-size:.95rem}
-
-    /* --- About --- */
-    .about{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;padding:3.5rem 6%;background:#0f0f0f}
-    .about-text h3{color:#00bcd4;font-size:.9rem;margin-bottom:.4rem;letter-spacing:.8px}
-    .about-text h2{font-size:1.6rem;margin-bottom:.8rem;color:#fff}
-    .about-text p{color:#cfcfcf;margin-bottom:1rem;line-height:1.6}
-    .progress-bar{background:#222;border-radius:999px;overflow:hidden;margin:.5rem 0}
-    .progress{height:10px;background:linear-gradient(90deg,#00bcd4,#008c9e);width:0;transition:width 1.2s ease}
-    .about-img img{width:100%;border-radius:10px;box-shadow:0 8px 30px rgba(0,188,212,.16)}
-
-    /* --- Footer --- */
-    footer{text-align:center;padding:1.5rem;background:#121212;border-top:1px solid #333;color:#aaa}
-
-    /* --- Responsive breakpoints --- */
-    @media (max-width:1024px){
-      .hero{grid-template-columns:1fr;min-height:80vh;padding-top:8.5rem}
-      #globe-container{order:2;height:320px}
-      .hero-content{text-align:left}
+    a {
+      color: #00bcd4;
+      text-decoration: none;
     }
-    @media (max-width:768px){
-      header{padding:1rem 4%}
-      .nav-links{display:none;}
-      .hamburger{display:flex}
-      .hero{padding-top:7rem}
-      .hero h2{font-size:1.9rem}
-      .hero h3{font-size:1.05rem}
-      #globe-container{height:300px}
-      .about{grid-template-columns:1fr;gap:1.25rem}
-      .about-img img{max-height:360px;object-fit:cover}
-      .services{padding:2rem 4%}
+    a:hover {
+      color: #ff9800;
     }
-    @media (max-width:480px){
-      .hero h2{font-size:1.6rem}
-      .hero p{font-size:.95rem}
-      .btn-primary{padding:.6rem 1rem}
-      #globe-container{height:240px}
-      .service-box{padding:1rem}
+    header {
+      background: #121212cc;
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      color: #00bcd4;
+      font-weight: 700;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+    .btn-nav {
+      margin-left: 2rem;
+      padding: 0.6rem 1.2rem;
+      background: #00bcd4;
+      color: #121212;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn-nav:hover {
+      background: #ff9800;
+      color: #fff;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 10% 5rem 10%;
+      position: relative;
+      min-height: 100vh;
+    }
+    .hero-content {
+      z-index: 2;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-weight: 800;
+    }
+    .hero h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      color: #ff9800;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+    .btn-primary {
+      padding: 0.8rem 1.6rem;
+      background: #00bcd4;
+      color: #121212;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn-primary:hover {
+      background: #ff9800;
+      color: #fff;
+    }
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    #globe-container {
+      width: 100%;
+      height: 400px;
+    }
+    /* Services Section */
+    .services {
+      background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
+      padding: 4rem 10%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    .service-box {
+      background: #121212;
+      padding: 2rem;
+      border-radius: 10px;
+      border: 1px solid #222;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .service-box:hover {
+      transform: translateY(-8px);
+      border-color: #00bcd4;
+    }
+    .service-box i {
+      font-size: 2rem;
+      color: #00bcd4;
+      margin-bottom: 1rem;
+    }
+    .service-box h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+    .service-box p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+    /* About Section */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 3rem;
+      padding: 5rem 10%;
+      background: #0f0f0f;
+    }
+    .about-text h3 {
+      color: #00bcd4;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+    .progress-bar {
+      background: #222;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .progress {
+      height: 10px;
+      background: linear-gradient(90deg, #00bcd4, #008c9e);
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+    .about img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 188, 212, 0.3);
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #121212;
+      border-top: 1px solid #333;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .about {
+        grid-template-columns: 1fr;
+      }
+      #globe-container {
+        height: 300px;
+      }
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+      nav a {
+        margin: 0 0.8rem;
+      }
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      .hero h3 {
+        font-size: 1.2rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+      .hero h3 {
+        font-size: 1rem;
+      }
+      .hero p {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -96,171 +238,159 @@
   <header>
     <h1>IC3Expert</h1>
     <nav>
-      <div class="nav-links" id="navLinks">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <button class="btn-nav" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-        <span></span>
-      </button>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn-nav">Get Started</a>
     </nav>
   </header>
 
-  <!-- particles cover hero area -->
-  <div id="particles-js" aria-hidden="true"></div>
+  <div id="particles-js"></div>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <h2>IT & Cyber Security</h2>
-        <h3>Stay Secure, Stay Ahead in a Connected World.</h3>
-        <p>Imagine running your business with complete digital confidence. That’s the promise of <strong>IC3Expert</strong>. We don’t just react to threats; our advanced cybersecurity solutions are engineered to predict, prevent, and neutralize the ever-evolving landscape of cyber risks.</p>
-        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
-      </div>
-      <div id="globe-container" aria-hidden="false"></div>
-    </section>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>IT & Cyber Security</h2>
+      <h3>Stay Secure, Stay Ahead in a Connected World.</h3>
+      <p>Imagine running your business with complete digital confidence. That’s the promise of <strong>IC3Expert</strong>. We don’t just react to threats; our advanced cybersecurity solutions are engineered to predict, prevent, and neutralize the ever-evolving landscape of cyber risks. This ensures more than just security; it guarantees the operational fluidity and efficiency you need to thrive, freeing you to concentrate on growth while we expertly handle the digital frontier.</p>
+      <a href="#contact" class="btn-primary">Get Started</a>
+    </div>
+    <div id="globe-container"></div>
+  </section>
 
-    <!-- Services -->
-    <section class="services" id="services">
-      <div class="service-box"><i class="fas fa-shield-alt"></i><h4>Privacy Protection</h4><p>End-to-end encryption, strict access controls, and compliance.</p></div>
-      <div class="service-box"><i class="fas fa-network-wired"></i><h4>Secure Network</h4><p>Secure architecture across hybrid and multi-cloud environments.</p></div>
-      <div class="service-box"><i class="fas fa-bug"></i><h4>Malware Protection</h4><p>Real-time threat blocking and remediation.</p></div>
-      <div class="service-box"><i class="fas fa-cloud"></i><h4>Cloud Security</h4><p>Monitoring, posture management, and automated defenses for cloud.</p></div>
-      <div class="service-box"><i class="fas fa-satellite-dish"></i><h4>Threat Intelligence</h4><p>Proactive intelligence to stop threats before they spread.</p></div>
-      <div class="service-box"><i class="fas fa-bolt"></i><h4>Incident Response</h4><p>Rapid response and recovery from security incidents.</p></div>
-    </section>
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="service-box">
+      <i class="fas fa-shield-alt"></i>
+      <h4>Privacy Protection</h4>
+      <p>End-to-end encryption, strict access controls, data minimization, and personal information are private and compliant.</p>
+    </div>
+    <div class="service-box">
+      <i class="fas fa-network-wired"></i>
+      <h4>Secure Network</h4>
+      <p>We enable secure innovation across hybrid and multi-cloud landscapes by enforcing an 'always verified' environment.</p>
+    </div>
+    <div class="service-box">
+      <i class="fas fa-bug"></i>
+      <h4>Malware Protection</h4>
+      <p>Our malware protection shuts down threats in real-time, ensuring your data and apps stay secure everywhere.</p>
+    </div>
+    <div class="service-box">
+      <i class="fas fa-cloud"></i>
+      <h4>Cloud Security</h4>
+      <p>Protecting cloud infrastructure and applications with advanced monitoring, compliance enforcement, and automated defenses.</p>
+    </div>
+    <div class="service-box">
+      <i class="fas fa-satellite-dish"></i>
+      <h4>Threat Intelligence</h4>
+      <p>Real-time intelligence and analytics to detect, track, and prevent cyber threats before they impact your business.</p>
+    </div>
+    <div class="service-box">
+      <i class="fas fa-bolt"></i>
+      <h4>Incident Response</h4>
+      <p>Rapid, expert-led response to cyber incidents, minimizing damage and ensuring business continuity.</p>
+    </div>
+  </section>
 
-    <!-- About -->
-    <section class="about" id="about">
-      <div class="about-text">
-        <h3>WHO WE ARE</h3>
-        <h2>Your Trusted Partner in Cyber Defense</h2>
-        <p>Certified Cyber Protector | Trusted Security Partner. At <strong>IC3Expert</strong>, we deliver resilient protection and trusted defense strategies to safeguard your digital world.</p>
-        <label>Trusted Defense</label>
-        <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
-        <label>Resilient Protection</label>
-        <div class="progress-bar"><div class="progress" style="width:85%"></div></div>
-        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
-      </div>
-      <div class="about-img">
-        <!-- generated image placed into project root earlier -->
-        <img src="A_digital_photograph_features_a_portrait_of_an_Afr.png" alt="IT Professional in Blue Shirt and Tie">
-      </div>
-    </section>
-
-    <!-- Contact (static) -->
-    <section id="contact" style="padding:3rem 6%;background:#090909;">
-      <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:1rem;">
-        <h3 style="color:#00bcd4;margin-bottom:.5rem">Get in touch</h3>
-        <p style="color:#d0d0d0;">Fill the form and we'll respond within 24 hours.</p>
-        <form id="contactForm" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-          <input type="text" name="name" placeholder="Full name" required style="padding:.8rem;border-radius:8px;border:1px solid #222;background:#0b0b0b;color:#fff">
-          <input type="email" name="email" placeholder="Email" required style="padding:.8rem;border-radius:8px;border:1px solid #222;background:#0b0b0b;color:#fff">
-          <input type="text" name="subject" placeholder="Subject" style="grid-column:1/-1;padding:.8rem;border-radius:8px;border:1px solid #222;background:#0b0b0b;color:#fff">
-          <textarea name="message" rows="6" placeholder="Message" style="grid-column:1/-1;padding:.8rem;border-radius:8px;border:1px solid #222;background:#0b0b0b;color:#fff"></textarea>
-          <button type="submit" class="btn-primary" style="grid-column:1/-1;width:160px">Send Message</button>
-        </form>
-      </div>
-    </section>
-
-  </main>
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="about-text">
+      <h3>WHO WE ARE</h3>
+      <h2>Your Trusted Partner in Cyber Defense</h2>
+      <p>Certified Cyber Protector | Trusted Security Partner. At <strong>IC3Expert</strong>, we deliver resilient protection and trusted defense strategies to safeguard your digital world.</p>
+      <label>Trusted Defense</label>
+      <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
+      <label>Resilient Protection</label>
+      <div class="progress-bar"><div class="progress" style="width:85%"></div></div>
+      <a href="#contact" class="btn-primary">Get Started</a>
+    </div>
+    <div class="about-img">
+      <img src="A_digital_photograph_features_a_portrait_of_an_Afr.png" alt="IT Professional in Blue Shirt">
+    </div>
+  </section>
 
   <footer>
     <p>&copy; 2025 IC3Expert. All rights reserved.</p>
   </footer>
 
-  <!-- scripts: particles + three.js -->
+  <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    particlesJS('particles-js',{
-      particles:{number:{value:70,density:{enable:true,value_area:800}},color:{value:'#00bcd4'},shape:{type:'circle'},opacity:{value:.45},size:{value:3,random:true},line_linked:{enable:true,distance:140,color:'#00bcd4',opacity:.36,width:1},move:{enable:true,speed:1.8,out_mode:'out'}},
-      interactivity:{detect_on:'canvas',events:{onhover:{enable:true,mode:'repulse'},onclick:{enable:true,mode:'push'}},modes:{repulse:{distance:100},push:{particles_nb:4}}},retina_detect:true
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 800 } },
+        color: { value: "#00bcd4" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#00bcd4", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, out_mode: "out" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: true, mode: "repulse" } },
+        modes: { repulse: { distance: 100, duration: 0.4 } }
+      },
+      retina_detect: true
     });
   </script>
 
+  <!-- Three.js Globe -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   <script>
-    // Globe setup (responsive + simple drag interaction)
-    (function(){
-      const container = document.getElementById('globe-container');
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, .1, 1000);
-      const renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});
-      renderer.setPixelRatio(window.devicePixelRatio);
+    const container = document.getElementById("globe-container");
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      container.clientWidth / container.clientHeight,
+      0.1,
+      1000
+    );
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
+
+    const geometry = new THREE.SphereGeometry(5, 64, 64);
+    const material = new THREE.MeshPhongMaterial({
+      color: 0x0a0a0a,
+      emissive: 0x00bcd4,
+      emissiveIntensity: 0.4,
+      shininess: 100,
+      specular: 0x111111,
+      wireframe: false
+    });
+    const globe = new THREE.Mesh(geometry, material);
+    scene.add(globe);
+
+    const ambientLight = new THREE.AmbientLight(0x404040, 2);
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0x00bcd4, 1.2);
+    pointLight.position.set(10, 10, 10);
+    scene.add(pointLight);
+
+    camera.position.z = 15;
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = false;
+    controls.enablePan = false;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1.0;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener("resize", () => {
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
       renderer.setSize(container.clientWidth, container.clientHeight);
-      container.appendChild(renderer.domElement);
-
-      // Wireframe globe
-      const geo = new THREE.SphereGeometry(5,48,48);
-      const wire = new THREE.WireframeGeometry(geo);
-      const mesh = new THREE.LineSegments(wire);
-      mesh.material.depthTest = false;
-      mesh.material.opacity = .7;
-      mesh.material.transparent = true;
-      mesh.material.color = new THREE.Color('#00bcd4');
-      scene.add(mesh);
-
-      // subtle glow using second larger wireframe
-      const geo2 = new THREE.SphereGeometry(5.4,32,32);
-      const wire2 = new THREE.WireframeGeometry(geo2);
-      const mesh2 = new THREE.LineSegments(wire2);
-      mesh2.material.depthTest = false;mesh2.material.opacity = .15;mesh2.material.transparent = true;mesh2.material.color = new THREE.Color('#00bcd4');
-      scene.add(mesh2);
-
-      camera.position.z = 15;
-
-      // Auto rotation
-      let autoRotate = true;
-      let lastX = null; let isDragging = false;
-
-      // Pointer drag to rotate
-      container.addEventListener('pointerdown', (e)=>{isDragging=true;lastX=e.clientX;autoRotate=false;container.setPointerCapture(e.pointerId)});
-      window.addEventListener('pointerup',(e)=>{isDragging=false;lastX=null;setTimeout(()=>{autoRotate=true},1000)});
-      window.addEventListener('pointermove',(e)=>{if(!isDragging) return; const dx = (e.clientX - lastX); mesh.rotation.y += dx * 0.005; mesh2.rotation.y += dx * 0.005; lastX = e.clientX});
-
-      function onResize(){
-        const w = container.clientWidth; const h = container.clientHeight;
-        camera.aspect = w/h; camera.updateProjectionMatrix(); renderer.setSize(w,h);
-      }
-      window.addEventListener('resize', onResize);
-
-      function animate(){requestAnimationFrame(animate); if(autoRotate && !isDragging){mesh.rotation.y += 0.003; mesh2.rotation.y += 0.002} renderer.render(scene,camera)}
-      animate();
-    })();
-  </script>
-
-  <script>
-    // Simple hamburger toggle for mobile
-    const hamb = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamb.addEventListener('click', ()=>{
-      const showing = getComputedStyle(navLinks).display !== 'none';
-      navLinks.style.display = showing ? 'none' : 'flex';
-      navLinks.style.flexDirection = 'column';
-      navLinks.style.background = '#0b0b0b';
-      navLinks.style.padding = '1rem';
-      navLinks.style.position = 'absolute';
-      navLinks.style.right = '4%';
-      navLinks.style.top = '64px';
-      navLinks.style.borderRadius = '8px';
-      navLinks.style.gap = '0.6rem';
     });
-
-    // Contact form stub: prevent default and show simple success (no backend)
-    document.getElementById('contactForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('Thanks! Your message was captured locally — wire this to an email endpoint to send it.');
-      this.reset();
-    });
-
-    // animate progress bars on scroll
-    function animateProgress(){document.querySelectorAll('.progress').forEach(p=>{if(p.style.width && p.style.width!=='0%'){return}const rect = p.getBoundingClientRect(); if(rect.top < window.innerHeight - 80){p.style.width = p.getAttribute('data-width') || p.style.width || '85%'}})}
-    window.addEventListener('scroll', animateProgress);
-    // set explicit widths
-    document.querySelectorAll('.progress')[0].style.width='90%';
-    document.querySelectorAll('.progress')[1].style.width='85%';
   </script>
 </body>
 </html>
