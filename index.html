@@ -1,176 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IC3Expert - IT & Cybersecurity Solutions</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IC3Expert — IT & Cybersecurity</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
+    /* ---------------- Reset & Base ---------------- */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0d0d0d;
-      color: #f5f5f5;
-      overflow-x: hidden;
+      background:#0d0d0d;color:#eef2f3;line-height:1.6;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     }
-    a { color: #00bcd4; text-decoration: none; }
-    a:hover { color: #ff9800; }
-    header {
-      background: #121212cc;
-      padding: 1.2rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-      position: fixed; width: 100%; top: 0; z-index: 1000;
-    }
-    header h1 { font-size: 1.5rem; color: #00bcd4; font-weight: 700; }
-    nav a { margin-left: 1.5rem; font-weight: 500; }
-    .btn-nav {
-      margin-left: 2rem; padding: 0.6rem 1.2rem;
-      background: #00bcd4; color: #121212; border-radius: 5px;
-      font-weight: bold; transition: background 0.3s;
-    }
-    .btn-nav:hover { background: #ff9800; color: #fff; }
+    a{color:#00bcd4;text-decoration:none}
+    a:hover{color:#ff9800}
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 8rem 10% 5rem 10%;
-      position: relative;
-      min-height: 100vh;
+    /* ---------------- Header ---------------- */
+    header{
+      position:fixed;top:0;left:0;width:100%;z-index:1200;
+      background:rgba(10,10,10,0.85);backdrop-filter:blur(6px);
+      border-bottom:1px solid rgba(255,255,255,0.03);
+      padding:14px 5%;
+      display:flex;align-items:center;justify-content:space-between;
     }
-    .hero-content { z-index: 2; }
-    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; color: #fff; font-weight: 800; }
-    .hero h3 { font-size: 1.6rem; margin-bottom: 1.5rem; font-weight: 600; color: #ff9800; }
-    .hero p { font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; }
-    .btn-primary {
-      padding: 0.8rem 1.6rem; background: #00bcd4; color: #121212;
-      border-radius: 5px; font-weight: bold; transition: background 0.3s;
-    }
-    .btn-primary:hover { background: #ff9800; color: #fff; }
+    header h1{color:#00bcd4;font-weight:800;letter-spacing:0.6px}
+    nav{display:flex;gap:1rem;align-items:center}
+    nav a{color:#e6f7f9;font-weight:600}
+    .btn-nav{background:#00bcd4;color:#071218;padding:.5rem .9rem;border-radius:8px;font-weight:700;border:none;cursor:pointer}
+    .btn-nav:hover{background:#ff9800;color:#fff}
 
-    #particles-js {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
-    }
-    #globe-container { width: 100%; height: 400px; }
+    /* hamburger for small screens */
+    .hamburger{display:none;background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px;border-radius:8px;cursor:pointer}
+    .hamburger span{display:block;width:18px;height:2px;background:#cfe;position:relative}
+    .hamburger span::before,.hamburger span::after{content:"";position:absolute;width:18px;height:2px;background:#cfe;left:0}
+    .hamburger span::before{top:-6px}
+    .hamburger span::after{top:6px}
 
-    /* Services */
-    .services {
-      background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
-      padding: 4rem 10%;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem; text-align: center;
+    /* ---------------- Hero ---------------- */
+    .hero{
+      position:relative;min-height:100vh;
+      padding:100px 6% 60px 6%;
+      display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:2.5rem;
+      overflow:hidden;
     }
-    .service-box {
-      background: #121212; padding: 2rem; border-radius: 10px;
-      border: 1px solid #222; transition: transform 0.3s, border-color 0.3s;
-    }
-    .service-box:hover { transform: translateY(-8px); border-color: #00bcd4; }
-    .service-box i { font-size: 2rem; color: #00bcd4; margin-bottom: 1rem; }
-    .service-box h4 { font-size: 1.3rem; margin-bottom: 0.8rem; color: #fff; }
-    .service-box p { font-size: 0.95rem; color: #ccc; }
+    #particles-js{position:absolute;inset:0;z-index:0}
+    .hero-content{z-index:2;max-width:680px}
+    .hero h1,.hero h2{margin-bottom:.5rem}
+    .hero h2{font-size:2.4rem;color:#ffffff;font-weight:900;line-height:1.04}
+    .hero h3{color:#ff9800;font-weight:700;margin-bottom:1rem;font-size:1.05rem}
+    .hero p{color:#d6d9da;margin-bottom:1.25rem;font-size:1.02rem}
+    .btn-primary{background:#00bcd4;color:#081318;padding:.7rem 1.2rem;border-radius:8px;border:none;font-weight:800;cursor:pointer}
+    .btn-primary:hover{background:#ff9800;color:#fff}
 
-    /* About */
-    .about {
-      display: grid; grid-template-columns: 1fr 1fr;
-      align-items: center; gap: 3rem;
-      padding: 5rem 10%; background: #0f0f0f;
-    }
-    .about-text h3 { color: #00bcd4; font-size: 1rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
-    .about-text h2 { font-size: 2rem; margin-bottom: 1rem; color: #fff; }
-    .about-text p { margin-bottom: 1.5rem; color: #ccc; line-height: 1.6; }
-    .progress-bar {
-      background: #222; border-radius: 20px; overflow: hidden; margin-bottom: 1rem;
-    }
-    .progress { height: 10px; background: linear-gradient(90deg, #00bcd4, #008c9e); width: 0; transition: width 1.5s ease-in-out; }
-    .about img { width: 100%; border-radius: 10px; box-shadow: 0px 0px 20px rgba(0, 188, 212, 0.3); }
+    /* globe container */
+    #globe-container{z-index:1;width:100%;height:420px;display:flex;align-items:center;justify-content:center}
+    /* fallback image when WebGL not supported */
+    #globe-fallback{display:none;width:100%;max-width:420px;border-radius:12px;box-shadow:0 12px 40px rgba(0,188,212,0.08);}
 
-    footer { text-align: center; padding: 1.5rem; background: #121212; border-top: 1px solid #333; font-size: 0.9rem; color: #aaa; }
+    /* ---------------- Sections ---------------- */
+    section{padding:56px 6%}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .service{background:#0f0f10;border:1px solid rgba(255,255,255,0.03);padding:20px;border-radius:12px;text-align:center}
+    .service i{font-size:1.6rem;color:#00bcd4;margin-bottom:.6rem}
+    .service h4{margin:8px 0 6px;color:#fff}
+    .service p{color:#cfd3d4;font-size:.95rem}
 
-    /* Responsive */
-    @media (max-width: 992px) {
-      .hero { grid-template-columns: 1fr; text-align: center; padding-top: 7rem; }
-      #globe-container { height: 300px; margin-top: 2rem; }
-      .about { grid-template-columns: 1fr; text-align: center; }
+    .about{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .about img{width:100%;border-radius:12px;box-shadow:0 18px 40px rgba(0,188,212,0.06)}
+    .about-text h3{color:#00bcd4;font-weight:700;margin-bottom:6px}
+    .about-text h2{color:#fff;margin-bottom:10px}
+    .about-text p{color:#d1d5d6}
+
+    /* contact */
+    .contact-form{max-width:720px;margin:0 auto;display:grid;gap:12px}
+    .contact-form input,.contact-form textarea{background:#0b0b0b;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:8px;color:#fff}
+    .contact-form button{width:160px;background:#00bcd4;color:#071318;padding:10px;border-radius:8px;border:none;font-weight:700;cursor:pointer}
+    .contact-form button:hover{background:#ff9800;color:#fff}
+
+    footer{padding:24px 6%;text-align:center;color:#9aa3a6;background:linear-gradient(0deg,rgba(255,255,255,0.01),transparent)}
+
+    /* ---------------- Responsive ---------------- */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr; padding-top:96px}
+      #globe-container{height:360px}
+      .about{grid-template-columns:1fr 1fr}
     }
-    @media (max-width: 600px) {
-      .hero h2 { font-size: 2rem; }
-      .hero h3 { font-size: 1.2rem; }
-      .hero p { font-size: 1rem; }
+    @media (max-width:768px){
+      nav a{display:none}
+      .hamburger{display:block}
+      .hero{padding-top:86px}
+      #globe-container{height:310px}
+      .about{grid-template-columns:1fr}
+      .about img{max-height:360px;object-fit:cover}
     }
+    @media (max-width:480px){
+      .hero h2{font-size:1.6rem}
+      .hero p{font-size:.95rem}
+      #globe-container{height:240px}
+    }
+
+    /* small helper for hidden aria */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1>IC3Expert</h1>
     <nav>
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="#contact" class="btn-nav">Get Started</a>
+      <button class="btn-nav" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+      <button class="hamburger" id="hamburger" aria-label="menu"><span></span></button>
     </nav>
   </header>
 
-  <div id="particles-js"></div>
+  <!-- Hero -->
+  <main>
+    <section class="hero" id="home">
+      <div id="particles-js" aria-hidden="true"></div>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h2>IT & Cyber Security</h2>
-      <h3>Stay Secure, Stay Ahead in a Connected World.</h3>
-      <p>Imagine running your business with complete digital confidence. That’s the promise of <strong>IC3Expert</strong>. We don’t just react to threats; our advanced cybersecurity solutions are engineered to predict, prevent, and neutralize the ever-evolving landscape of cyber risks. This ensures more than just security; it guarantees the operational fluidity and efficiency you need to thrive, freeing you to concentrate on growth while we expertly handle the digital frontier.</p>
-      <a href="#contact" class="btn-primary">Get Started</a>
-    </div>
-    <div id="globe-container"></div>
-  </section>
+      <div class="hero-content" role="region" aria-labelledby="hero-title">
+        <h3 id="hero-sub" class="hero-sub">IT & Cyber Security</h3>
+        <h2 id="hero-title">Stay Secure, Stay Ahead in a Connected World.</h2>
+        <p>Imagine running your business with complete digital confidence. That’s the promise of <strong>IC3Expert</strong>. We don’t just react to threats; our advanced cybersecurity solutions are engineered to predict, prevent, and neutralize the ever-evolving landscape of cyber risks — so you can focus on growth.</p>
+        <div style="margin-top:12px">
+          <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+        </div>
+      </div>
 
-  <!-- Services -->
-  <section class="services" id="services">
-    <div class="service-box"><i class="fas fa-shield-alt"></i><h4>Privacy Protection</h4><p>End-to-end encryption, strict access controls, and compliance.</p></div>
-    <div class="service-box"><i class="fas fa-network-wired"></i><h4>Secure Network</h4><p>We enforce zero-trust and secure hybrid cloud environments.</p></div>
-    <div class="service-box"><i class="fas fa-bug"></i><h4>Malware Protection</h4><p>Real-time protection against evolving malware threats.</p></div>
-    <div class="service-box"><i class="fas fa-cloud"></i><h4>Cloud Security</h4><p>Advanced monitoring and automated defenses for cloud infra.</p></div>
-    <div class="service-box"><i class="fas fa-satellite-dish"></i><h4>Threat Intelligence</h4><p>Proactive analytics to detect and stop cyber threats early.</p></div>
-    <div class="service-box"><i class="fas fa-bolt"></i><h4>Incident Response</h4><p>Expert-led rapid response to minimize damage and downtime.</p></div>
-  </section>
+      <div id="globe-container" aria-hidden="false">
+        <!-- fallback image shown if WebGL unavailable -->
+        <img id="globe-fallback" src="A_digital_photograph_features_a_portrait_of_an_Afr.png" alt="Globe fallback" />
+      </div>
+    </section>
 
-  <!-- About -->
-  <section class="about" id="about">
-    <div class="about-text">
-      <h3>WHO WE ARE</h3>
-      <h2>Your Trusted Partner in Cyber Defense</h2>
-      <p>Certified Cyber Protector | Trusted Security Partner. At <strong>IC3Expert</strong>, we deliver resilient protection and trusted defense strategies to safeguard your digital world.</p>
-      <label>Trusted Defense</label>
-      <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
-      <label>Resilient Protection</label>
-      <div class="progress-bar"><div class="progress" style="width:85%"></div></div>
-      <a href="#contact" class="btn-primary">Get Started</a>
-    </div>
-    <div class="about-img">
-      <img src="https://i.ibb.co/6sVKtTt/it-professional-blue-shirt.jpg" alt="IT Professional in Blue Shirt">
-    </div>
-  </section>
+    <!-- Services -->
+    <section id="services" aria-labelledby="services-title">
+      <h2 id="services-title" style="text-align:center;color:#00bcd4;margin-bottom:18px">Our Services</h2>
+      <div class="services-grid" role="list">
+        <div class="service" role="listitem"><i class="fas fa-shield-alt"></i><h4>Privacy Protection</h4><p>End-to-end encryption and compliance to protect user data.</p></div>
+        <div class="service" role="listitem"><i class="fas fa-network-wired"></i><h4>Secure Network</h4><p>Monitoring and secure design to reduce attack surface.</p></div>
+        <div class="service" role="listitem"><i class="fas fa-bug"></i><h4>Malware Protection</h4><p>Real-time detection and remediation of malicious code.</p></div>
+        <div class="service" role="listitem"><i class="fas fa-cloud"></i><h4>Cloud Security</h4><p>Posture management and automated defenses for cloud workloads.</p></div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title" style="text-align:center;color:#00bcd4;margin-bottom:18px">About IC3Expert</h2>
+      <div class="about">
+        <div class="about-text">
+          <h3>WHO WE ARE</h3>
+          <h2>Your Trusted Partner in Cyber Defense</h2>
+          <p>At IC3Expert, our mission is simple: empower businesses to operate with confidence in a connected world. Our team combines industry best-practices, proactive threat intelligence, and responsive incident handling to keep your operations secure and resilient.</p>
+          <p style="margin-top:8px;color:#cfd6d6"><strong>Trusted Defense</strong></p>
+          <div style="background:#111;border-radius:999px;overflow:hidden;margin:.5rem 0 1rem 0">
+            <div style="height:10px;background:linear-gradient(90deg,#00bcd4,#008c9e);width:88%"></div>
+          </div>
+        </div>
+        <div>
+          <!-- your portrait image (also used previously) -->
+          <img src="A_digital_photograph_features_a_portrait_of_an_Afr.png" alt="IT Professional in Blue Shirt" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" style="text-align:center;color:#00bcd4;margin-bottom:18px">Contact Us</h2>
+      <form class="contact-form" id="contact-form" onsubmit="event.preventDefault();onContactSubmit();">
+        <input type="text" id="name" name="name" placeholder="Full name" required />
+        <input type="email" id="email" name="email" placeholder="Email address" required />
+        <input type="text" id="subject" name="subject" placeholder="Subject" />
+        <textarea id="message" name="message" placeholder="Message" rows="6"></textarea>
+        <div style="display:flex;justify-content:flex-start;gap:12px;align-items:center">
+          <button type="submit">Send Message</button>
+          <span id="contact-status" style="color:#9ccfd6"></span>
+        </div>
+      </form>
+    </section>
+
+  </main>
 
   <footer>
     <p>&copy; 2025 IC3Expert. All rights reserved.</p>
   </footer>
 
-  <!-- Smart Particles -->
+  <!-- ---------------- Particles (responsive counts) ---------------- -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
     (function(){
       const isMobile = window.innerWidth <= 768;
-      const deviceMemory = navigator.deviceMemory || 4;
-      const isLowEnd = deviceMemory <= 2 || (isMobile && window.innerWidth < 420);
-
-      if(isLowEnd){
-        console.warn("Low-end device detected — disabling particles.");
-        document.getElementById('particles-js').style.display = 'none';
-        return;
-      }
-
       const particleCount = isMobile ? 30 : 80;
+
+      // initialize particles with lighter config on small screens
       particlesJS('particles-js', {
         particles: {
           number: { value: particleCount, density: { enable: true, value_area: 700 } },
@@ -191,54 +218,146 @@
     })();
   </script>
 
-  <!-- Globe -->
+  <!-- ---------------- Three.js Globe (optimized & mobile-aware) ---------------- -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   <script>
-    const container = document.getElementById("globe-container");
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, container.clientWidth/container.clientHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    container.appendChild(renderer.domElement);
+    (function(){
+      const container = document.getElementById('globe-container');
+      const fallback = document.getElementById('globe-fallback');
 
-    const geometry = new THREE.SphereGeometry(5, 32, 32);
-    const material = new THREE.MeshPhongMaterial({
-      color: 0x0a0a0a,
-      emissive: 0x00bcd4,
-      emissiveIntensity: 0.3,
-      wireframe: false
-    });
-    const globe = new THREE.Mesh(geometry, material);
-    scene.add(globe);
+      // simple WebGL support check
+      function webglAvailable() {
+        try {
+          const canvas = document.createElement('canvas');
+          return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+        } catch (e) { return false; }
+      }
 
-    scene.add(new THREE.AmbientLight(0x404040, 1.5));
-    const pointLight = new THREE.PointLight(0x00bcd4, 1.0);
-    pointLight.position.set(10, 10, 10);
-    scene.add(pointLight);
+      if(!webglAvailable()){
+        // show fallback image and stop
+        fallback.style.display = 'block';
+        container.style.display = 'flex';
+        container.style.justifyContent = 'center';
+        return;
+      }
 
-    camera.position.z = 14;
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.enableZoom = false;
-    controls.enablePan = false;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.5;
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.03;
+      // Scene + Renderer + Camera
+      const scene = new THREE.Scene();
+      const width = container.clientWidth || 360;
+      const height = container.clientHeight || 360;
 
-    function animate() {
-      requestAnimationFrame(animate);
-      controls.update();
-      renderer.render(scene, camera);
-    }
-    animate();
+      const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+      camera.position.z = 14;
 
-    window.addEventListener("resize", () => {
-      camera.aspect = container.clientWidth/container.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(container.clientWidth, container.clientHeight);
-    });
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      // cap DPR to avoid mobile overload
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      renderer.setPixelRatio(dpr);
+      renderer.setSize(width, height);
+      renderer.setClearColor(0x000000, 0); // transparent
+      container.appendChild(renderer.domElement);
+
+      // Lighter geometry for phones
+      const isMobile = window.innerWidth <= 768;
+      const segments = isMobile ? 28 : 32;
+      const geometry = new THREE.SphereGeometry(5, segments, segments);
+
+      // Material: dark core + subtle emissive rim
+      const material = new THREE.MeshStandardMaterial({
+        color: 0x090909,
+        emissive: 0x00353f,
+        emissiveIntensity: 0.15,
+        metalness: 0.2,
+        roughness: 0.6
+      });
+
+      const globe = new THREE.Mesh(geometry, material);
+      scene.add(globe);
+
+      // subtle rim glow using a slightly larger transparent sphere
+      const glowGeo = new THREE.SphereGeometry(5.02, Math.max(16, segments), Math.max(16, segments));
+      const glowMat = new THREE.MeshBasicMaterial({ color: 0x00bcd4, transparent: true, opacity: 0.05 });
+      const glow = new THREE.Mesh(glowGeo, glowMat);
+      scene.add(glow);
+
+      // Lights: ambient + single point light
+      const ambient = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambient);
+      const point = new THREE.PointLight(0x00bcd4, 0.9, 100);
+      point.position.set(8, 6, 10);
+      scene.add(point);
+
+      // Controls (drag on touch + mouse)
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableZoom = false;
+      controls.enablePan = false;
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.07;
+      controls.autoRotate = true;
+      controls.autoRotateSpeed = isMobile ? 0.25 : 0.6;
+
+      // pause flag when document hidden
+      let shouldRender = true;
+      document.addEventListener('visibilitychange', () => {
+        shouldRender = document.visibilityState === 'visible';
+      });
+
+      // render loop
+      function render(){
+        if(!shouldRender){ requestAnimationFrame(render); return; }
+        controls.update();
+        renderer.render(scene, camera);
+        requestAnimationFrame(render);
+      }
+      render();
+
+      // resize handling
+      function onResize(){
+        const w = container.clientWidth || 320;
+        const h = container.clientHeight || 320;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        // limit pixel ratio again in case device rotated/resized
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+        renderer.setSize(w, h);
+      }
+      window.addEventListener('resize', onResize);
+      // initial resize to ensure crisp sizing
+      setTimeout(onResize, 200);
+
+      // Optional: gentle auto-tilt for visual interest (non-blocking)
+      let tiltDir = 1;
+      setInterval(()=>{ // tiny nudge every few seconds
+        if(!shouldRender) return;
+        globe.rotation.x += 0.002 * tiltDir;
+        glow.rotation.x += 0.002 * tiltDir;
+        tiltDir *= -1;
+      }, 4200);
+
+    })();
   </script>
+
+  <!-- ---------------- Small UI scripts ---------------- -->
+  <script>
+    // hamburger menu
+    const hamb = document.getElementById('hamburger');
+    hamb.addEventListener('click', ()=>{
+      const links = document.querySelectorAll('nav a');
+      links.forEach(a => a.style.display = a.style.display === 'none' ? 'inline-block' : 'none');
+    });
+
+    // contact form placeholder handler
+    function onContactSubmit(){
+      const status = document.getElementById('contact-status');
+      status.textContent = 'Sending...';
+      setTimeout(()=>{
+        status.textContent = 'Message received — we will reply shortly.';
+        document.getElementById('contact-form').reset();
+        setTimeout(()=>status.textContent='',3000);
+      }, 900);
+    }
+  </script>
+
 </body>
 </html>
