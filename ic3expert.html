@@ -1,108 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IC3Expert - IT & Cybersecurity Solutions</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0d0d0d;
-      color: #f5f5f5;
+      color: #e0f7fa;
       overflow-x: hidden;
     }
     a { color: #00bcd4; text-decoration: none; }
-    a:hover { color: #4dd0e1; }
+    a:hover { color: #00f3ff; }
 
-    /* HEADER */
+    /* Header */
     header {
-      background: #121212cc;
-      padding: 0.8rem 5%;
+      background: rgba(18,18,18,0.95);
+      padding: 1rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #222;
       position: fixed;
-      width: 100%;
-      top: 0; z-index: 1000;
+      top: 0; width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
     }
     header h1 {
-      font-size: 1.3rem;
-      color: #00bcd4;
+      font-size: 1.4rem;
+      color: #00f3ff;
       font-weight: 700;
     }
-    header h2 {
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: #aaa;
-      margin-top: 2px;
+    header p {
+      font-size: 0.75rem;
+      color: #9bd6df;
+      margin-top: -0.25rem;
     }
     nav a {
-      margin-left: 1.2rem;
+      margin-left: 1.5rem;
       font-weight: 500;
+      color: #e0f7fa;
     }
     .btn-nav {
-      margin-left: 1.5rem;
-      padding: 0.5rem 1.1rem;
+      margin-left: 2rem;
+      padding: 0.5rem 1rem;
       background: #00bcd4;
       color: #121212;
       border-radius: 5px;
       font-weight: bold;
-      transition: background 0.3s;
     }
-    .btn-nav:hover { background: #4dd0e1; color: #fff; }
 
-    /* HERO */
+    /* Hero */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 7rem 10% 4rem 10%;
+      padding: 8rem 10% 5rem;
       position: relative;
       min-height: 100vh;
-      overflow: hidden;
     }
-    .hero-content { z-index: 2; }
     .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
       font-weight: 800;
-      color: #ffffff;
+      color: #e0f7fa;
     }
     .hero h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
       font-weight: 600;
-      color: #00bcd4;
+      color: #00f3ff;
     }
     .hero p {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
       max-width: 600px;
-      color: #ccc;
+      color: #b0dfe8;
+      line-height: 1.6;
     }
     .btn-primary {
-      padding: 0.7rem 1.4rem;
+      padding: 0.8rem 1.6rem;
       background: #00bcd4;
       color: #121212;
       border-radius: 5px;
       font-weight: bold;
       transition: background 0.3s;
     }
-    .btn-primary:hover { background: #4dd0e1; color: #fff; }
+    .btn-primary:hover { background: #00f3ff; color: #0d0d0d; }
 
-    /* Binary Rain Canvas */
-    #binaryCanvas {
+    #binary-canvas {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0; left: 0; width: 100%; height: 100%;
       z-index: 0;
-      pointer-events: none;
+      opacity: 0.2;
     }
 
-    /* SERVICES */
+    /* Services */
     .services {
       background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
       padding: 4rem 10%;
@@ -118,103 +113,115 @@
       border: 1px solid #222;
       transition: transform 0.3s, border-color 0.3s;
     }
-    .service-box:hover { transform: translateY(-8px); border-color: #00bcd4; }
+    .service-box:hover {
+      transform: translateY(-8px);
+      border-color: #00f3ff;
+    }
     .service-box i {
       font-size: 2rem;
-      color: #00bcd4;
+      color: #00f3ff;
       margin-bottom: 1rem;
     }
-    .service-box h4 { font-size: 1.2rem; margin-bottom: 0.8rem; color: #fff; }
-    .service-box p { font-size: 0.9rem; color: #ccc; }
 
-    /* ABOUT */
+    /* About */
     .about {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 3rem;
       align-items: center;
-      gap: 2rem;
-      padding: 4rem 10%;
+      padding: 5rem 10%;
       background: #0f0f0f;
     }
-    .about-text h3 { color: #00bcd4; font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
-    .about-text h2 { font-size: 1.6rem; margin-bottom: 1rem; color: #fff; }
-    .about-text p { margin-bottom: 1rem; color: #ccc; line-height: 1.6; }
-
-    .about img {
+    .about-text h3 { color: #00f3ff; font-size: 1rem; margin-bottom: 0.5rem; }
+    .about-text h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .about-text p { color: #b0dfe8; margin-bottom: 1.5rem; line-height: 1.6; }
+    .about-img img {
       width: 100%;
       border-radius: 10px;
-      box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.3);
+      box-shadow: 0px 0px 20px rgba(0, 243, 255, 0.3);
     }
 
-    /* CORE VALUES */
-    .core-values {
+    /* Core Values / Vision / Mission / Motto */
+    .values {
       background: #0d0d0d;
       padding: 4rem 10%;
       text-align: center;
     }
-    .core-values h2 { color: #00bcd4; font-size: 1.6rem; margin-bottom: 2rem; }
-    .values-grid {
+    .values h2 { color: #00f3ff; margin-bottom: 2rem; }
+    .value-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
     }
-    .value-box {
+    .value-card {
       background: #121212;
-      padding: 1.5rem;
-      border-radius: 10px;
       border: 1px solid #222;
-      transition: transform 0.3s, border-color 0.3s;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .value-box:hover { transform: translateY(-6px); border-color: #00bcd4; }
-    .value-box i { font-size: 2rem; color: #00bcd4; margin-bottom: 1rem; }
-    .value-box h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
-    .value-box p { font-size: 0.9rem; color: #ccc; }
-
-    /* CONTACT FORM */
-    .contact {
-      background: #0f0f0f;
-      padding: 4rem 10%;
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(0,243,255,0.4);
     }
-    .contact h2 { text-align: center; color: #00bcd4; margin-bottom: 2rem; }
-    .contact-form {
-      max-width: 600px;
-      margin: auto;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.8rem;
+    .value-card i {
+      font-size: 2.2rem;
+      color: #00f3ff;
       margin-bottom: 1rem;
-      border: none;
-      border-radius: 5px;
-      background: #1a1a1a;
-      color: #fff;
     }
-    .contact-form button {
+    .value-card h3 { margin-bottom: 0.5rem; }
+    .value-card p { color: #b0dfe8; }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 60px 20px;
+      background: #0a0a0a;
+      text-align: center;
+    }
+    .testimonials h2 { color: #00f3ff; margin-bottom: 40px; }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 243, 255, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      color: #e0f7fa;
+    }
+    .testimonial-img {
+      width: 80px; height: 80px; border-radius: 50%;
+      margin-bottom: 15px; border: 2px solid #00f3ff; object-fit: cover;
+    }
+
+    /* Contact + Form */
+    .contact {
+      padding: 4rem 10%;
+      background: #0f0f0f;
+      text-align: center;
+    }
+    .contact h2 { color: #00f3ff; margin-bottom: 1rem; }
+    .contact p { margin-bottom: 2rem; color: #b0dfe8; }
+    form {
+      max-width: 700px; margin: 0 auto; text-align: left;
+    }
+    form input, form textarea {
+      width: 100%; padding: 1rem; margin-bottom: 1rem;
+      background: #121212; border: 1px solid #222;
+      border-radius: 8px; color: #e0f7fa;
+    }
+    form button {
       padding: 0.8rem 1.6rem;
-      background: #00bcd4;
-      border: none;
-      color: #121212;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
+      background: #00bcd4; color: #121212;
+      border-radius: 5px; font-weight: bold;
     }
-    .contact-form button:hover { background: #4dd0e1; }
 
     footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: #121212;
-      border-top: 1px solid #333;
-      font-size: 0.8rem;
-      color: #aaa;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; text-align: center; padding: 6rem 5% 3rem 5%; }
-      .about { grid-template-columns: 1fr; text-align: center; }
-      nav { display: none; }
+      text-align: center; padding: 1.5rem;
+      background: #121212; border-top: 1px solid #333;
+      font-size: 0.9rem; color: #9bd6df;
     }
   </style>
 </head>
@@ -222,115 +229,111 @@
   <header>
     <div>
       <h1>IC3Expert</h1>
-      <h2>Blockchain Investigation Agency</h2>
+      <p>Blockchain Investigation Agency</p>
     </div>
     <nav>
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="#contact" class="btn-nav">Open a Case</a>
+      <a href="#case-form" class="btn-nav">Open a Case</a>
     </nav>
   </header>
 
   <section class="hero">
-    <canvas id="binaryCanvas"></canvas>
+    <canvas id="binary-canvas"></canvas>
     <div class="hero-content">
       <h2>IT & Cyber Security</h2>
       <h3>Stay Secure, Stay Ahead in a Connected World.</h3>
-      <p>Imagine running your business with complete digital confidence. That’s the promise of <strong>IC3Expert</strong>. We don’t just react to threats; our advanced cybersecurity solutions are engineered to predict, prevent, and neutralize the ever-evolving landscape of cyber risks. This ensures more than just security; it guarantees the operational fluidity and efficiency you need to thrive, freeing you to concentrate on growth while we expertly handle the digital frontier.</p>
-      <a href="#contact" class="btn-primary">Open a Case</a>
+      <p>Imagine running your business with complete digital confidence. That’s the promise of <strong>IC3Expert</strong>. We don’t just react to threats; our advanced cybersecurity solutions are engineered to predict, prevent, and neutralize the ever-evolving landscape of cyber risks.</p>
+      <a href="#case-form" class="btn-primary">Open a Case</a>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- Services -->
   <section class="services" id="services">
-    <div class="service-box"><i class="fas fa-shield-alt"></i><h4>Privacy Protection</h4><p>End-to-end encryption, strict access controls, and compliance.</p></div>
-    <div class="service-box"><i class="fas fa-network-wired"></i><h4>Secure Network</h4><p>Always-verified environments across hybrid cloud landscapes.</p></div>
-    <div class="service-box"><i class="fas fa-bug"></i><h4>Malware Protection</h4><p>Real-time threat detection and prevention for your assets.</p></div>
-    <div class="service-box"><i class="fas fa-cloud"></i><h4>Cloud Security</h4><p>Advanced monitoring and automated defenses for cloud apps.</p></div>
-    <div class="service-box"><i class="fas fa-satellite-dish"></i><h4>Threat Intelligence</h4><p>Track, analyze, and prevent cyberattacks before they happen.</p></div>
-    <div class="service-box"><i class="fas fa-bolt"></i><h4>Incident Response</h4><p>Rapid response minimizing damage and ensuring continuity.</p></div>
+    <div class="service-box"><i class="fas fa-shield-alt"></i><h4>Privacy Protection</h4><p>End-to-end encryption and compliance safeguards.</p></div>
+    <div class="service-box"><i class="fas fa-network-wired"></i><h4>Secure Network</h4><p>Always-verified security across hybrid cloud landscapes.</p></div>
+    <div class="service-box"><i class="fas fa-bug"></i><h4>Malware Protection</h4><p>Shutting down threats in real time everywhere.</p></div>
+    <div class="service-box"><i class="fas fa-cloud"></i><h4>Cloud Security</h4><p>Advanced monitoring and automated cloud defenses.</p></div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- About -->
   <section class="about" id="about">
     <div class="about-text">
       <h3>WHO WE ARE</h3>
       <h2>Your Trusted Partner in Cyber Defense</h2>
-      <p>Certified Cyber Protector | Trusted Security Partner. At <strong>IC3Expert</strong>, we deliver resilient protection and trusted defense strategies to safeguard your digital world.</p>
+      <p>At <strong>IC3Expert</strong>, we deliver resilient protection and trusted defense strategies to safeguard your digital world.</p>
     </div>
     <div class="about-img">
       <img src="my-it-professional.png" alt="IT Professional">
     </div>
   </section>
 
-  <!-- CORE VALUES -->
-  <section class="core-values">
-    <h2>Our Core Values</h2>
-    <div class="values-grid">
-      <div class="value-box"><i class="fas fa-lock"></i><h4>Commitment to Security</h4><p>Security is the foundation of everything we do.</p></div>
-      <div class="value-box"><i class="fas fa-lightbulb"></i><h4>Driven by Innovation</h4><p>We harness technology to stay ahead of threats.</p></div>
-      <div class="value-box"><i class="fas fa-brain"></i><h4>Our Motto</h4><p>"Securing Tomorrow, Today."</p></div>
+  <!-- Core Values / Vision / Mission / Motto -->
+  <section class="values">
+    <h2>Our Values & Vision</h2>
+    <div class="value-grid">
+      <div class="value-card"><i class="fas fa-shield-alt"></i><h3>Commitment to Security</h3><p>Relentless dedication to protecting what matters most.</p></div>
+      <div class="value-card"><i class="fas fa-lightbulb"></i><h3>Driven by Innovation</h3><p>Embracing cutting-edge tools to stay ahead of threats.</p></div>
+      <div class="value-card"><i class="fas fa-eye"></i><h3>Our Vision</h3><p>To be the global leader in digital forensics and recovery.</p></div>
+      <div class="value-card"><i class="fas fa-bullseye"></i><h3>Our Mission</h3><p>Restoring trust and digital safety for every client.</p></div>
+      <div class="value-card"><i class="fas fa-brain"></i><h3>Our Motto</h3><p>Smart, resilient, and always ahead of cyber threats.</p></div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <h2>Open a Case</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Full Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <input type="tel" placeholder="Your Phone Number" required>
-      <textarea rows="5" placeholder="Reason for opening a case..." required></textarea>
-      <button type="submit">Submit</button>
-    </form>
-    <p style="text-align:center; margin-top:1rem;">Contact us: <a href="mailto:icrg.recovery@gmail.com">icrg.recovery@gmail.com</a></p>
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card"><img src="client1.jpg" class="testimonial-img"><p>“I was scammed and lost $55,000 worth of crypto—it was devastating. That changed when I was introduced to IC3Expert, who helped me recover my funds.”</p><h4>– Michael R.</h4></div>
+      <div class="testimonial-card"><img src="client2.jpg" class="testimonial-img"><p>“I lost access to my USDT due to a phishing attack. IC3Expert investigated and successfully retrieved my funds. Professional and dedicated.”</p><h4>– Sophia L.</h4></div>
+      <div class="testimonial-card"><img src="client3.jpg" class="testimonial-img"><p>“Hackers drained my wallet—I thought all hope was gone. IC3Expert traced transactions and helped me recover my funds.”</p><h4>– Daniel K.</h4></div>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 IC3Expert. All rights reserved.</p>
-  </footer>
+  <!-- Open a Case -->
+  <section class="contact" id="case-form">
+    <h2>Open a Case</h2>
+    <p>Fill out the form below and our experts will contact you.</p>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <input type="text" placeholder="Place of Residence" required>
+      <textarea rows="5" placeholder="Reason for opening a case or how you got scammed" required></textarea>
+      <button type="submit">Submit Case</button>
+    </form>
+    <p>Contact us: icrg.recovery@gmail.com | WhatsApp: +1 (567) 403-9470</p>
+  </section>
 
-  <!-- BINARY RAIN SCRIPT -->
+  <footer><p>&copy; 2025 IC3Expert. All rights reserved.</p></footer>
+
+  <!-- Binary Rain -->
   <script>
-    const canvas = document.getElementById("binaryCanvas");
-    const ctx = canvas.getContext("2d");
-
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
+    const canvas = document.getElementById('binary-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    const binary = "01";
     const fontSize = 14;
-    let columns = Math.floor(width / fontSize);
-    let drops = [];
-
-    // Adjust number of columns for small screens
-    if (window.innerWidth < 600) {
-      columns = Math.floor(width / (fontSize * 1.5));
-    }
-
-    for (let i = 0; i < columns; i++) drops[i] = 1;
-
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
     function draw() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, width, height);
-      ctx.fillStyle = "#00bcd4";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00f3ff";
       ctx.font = fontSize + "px monospace";
       for (let i = 0; i < drops.length; i++) {
-        const text = Math.random() > 0.5 ? "0" : "1";
+        const text = binary[Math.floor(Math.random() * binary.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > height && Math.random() > 0.975) drops[i] = 0;
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
         drops[i]++;
       }
     }
-
     setInterval(draw, 50);
-
     window.addEventListener("resize", () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-      columns = Math.floor(width / fontSize);
-      drops = [];
-      for (let i = 0; i < columns; i++) drops[i] = 1;
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
     });
   </script>
 </body>
