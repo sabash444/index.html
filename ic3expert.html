@@ -28,16 +28,9 @@
       z-index: 1000;
       border-bottom: 1px solid #222;
     }
-    header h1 {
-      font-size: 1.4rem;
-      color: #00f3ff;
-      font-weight: 700;
-    }
-    header p {
-      font-size: 0.75rem;
-      color: #9bd6df;
-      margin-top: -0.25rem;
-    }
+    header h1 { font-size: 1.4rem; color: #00f3ff; font-weight: 700; }
+    header p { font-size: 0.75rem; color: #9bd6df; margin-top: -0.25rem; }
+    nav { display: flex; align-items: center; }
     nav a {
       margin-left: 1.5rem;
       font-weight: 500;
@@ -52,6 +45,20 @@
       font-weight: bold;
     }
 
+    /* Mobile Nav */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: #00f3ff;
+      cursor: pointer;
+    }
+    @media(max-width: 768px) {
+      nav { display: none; flex-direction: column; background: #121212; position: absolute; top: 100%; right: 0; width: 200px; padding: 1rem; }
+      nav a { margin: 0.75rem 0; }
+      nav.active { display: flex; }
+      .menu-toggle { display: block; }
+    }
+
     /* Hero */
     .hero {
       display: grid;
@@ -61,25 +68,9 @@
       position: relative;
       min-height: 100vh;
     }
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 800;
-      color: #e0f7fa;
-    }
-    .hero h3 {
-      font-size: 1.4rem;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      color: #00f3ff;
-    }
-    .hero p {
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      color: #b0dfe8;
-      line-height: 1.6;
-    }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 800; color: #e0f7fa; }
+    .hero h3 { font-size: 1.4rem; margin-bottom: 1.5rem; font-weight: 600; color: #00f3ff; }
+    .hero p { font-size: 1.05rem; margin-bottom: 2rem; max-width: 600px; color: #b0dfe8; line-height: 1.6; }
     .btn-primary {
       padding: 0.8rem 1.6rem;
       background: #00bcd4;
@@ -89,12 +80,14 @@
       transition: background 0.3s;
     }
     .btn-primary:hover { background: #00f3ff; color: #0d0d0d; }
-
     #binary-canvas {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 0;
-      opacity: 0.2;
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0; opacity: 0.2;
+    }
+    .hero-content { z-index: 1; }
+    @media(max-width: 768px) {
+      .hero { grid-template-columns: 1fr; padding: 7rem 5% 4rem; text-align: center; }
+      .hero p { margin: 0 auto 2rem; }
     }
 
     /* Services */
@@ -113,15 +106,8 @@
       border: 1px solid #222;
       transition: transform 0.3s, border-color 0.3s;
     }
-    .service-box:hover {
-      transform: translateY(-8px);
-      border-color: #00f3ff;
-    }
-    .service-box i {
-      font-size: 2rem;
-      color: #00f3ff;
-      margin-bottom: 1rem;
-    }
+    .service-box:hover { transform: translateY(-8px); border-color: #00f3ff; }
+    .service-box i { font-size: 2rem; color: #00f3ff; margin-bottom: 1rem; }
 
     /* About */
     .about {
@@ -135,94 +121,39 @@
     .about-text h3 { color: #00f3ff; font-size: 1rem; margin-bottom: 0.5rem; }
     .about-text h2 { font-size: 2rem; margin-bottom: 1rem; }
     .about-text p { color: #b0dfe8; margin-bottom: 1.5rem; line-height: 1.6; }
-    .about-img img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0px 0px 20px rgba(0, 243, 255, 0.3);
-    }
+    .about-img img { width: 100%; border-radius: 10px; box-shadow: 0px 0px 20px rgba(0, 243, 255, 0.3); }
+    @media(max-width: 768px) { .about { grid-template-columns: 1fr; text-align: center; } }
 
-    /* Core Values / Vision / Mission / Motto */
-    .values {
-      background: #0d0d0d;
-      padding: 4rem 10%;
-      text-align: center;
-    }
+    /* Values */
+    .values { background: #0d0d0d; padding: 4rem 10%; text-align: center; }
     .values h2 { color: #00f3ff; margin-bottom: 2rem; }
-    .value-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-    }
-    .value-card {
-      background: #121212;
-      border: 1px solid #222;
-      border-radius: 12px;
-      padding: 2rem;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .value-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px rgba(0,243,255,0.4);
-    }
-    .value-card i {
-      font-size: 2.2rem;
-      color: #00f3ff;
-      margin-bottom: 1rem;
-    }
-    .value-card h3 { margin-bottom: 0.5rem; }
-    .value-card p { color: #b0dfe8; }
+    .value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+    .value-card { background: #121212; border: 1px solid #222; border-radius: 12px; padding: 2rem; transition: 0.3s; }
+    .value-card:hover { transform: translateY(-8px); box-shadow: 0 0 20px rgba(0,243,255,0.4); }
+    .value-card i { font-size: 2.2rem; color: #00f3ff; margin-bottom: 1rem; }
 
     /* Testimonials */
-    .testimonials {
-      padding: 60px 20px;
-      background: #0a0a0a;
-      text-align: center;
-    }
+    .testimonials { padding: 60px 20px; background: #0a0a0a; text-align: center; }
     .testimonials h2 { color: #00f3ff; margin-bottom: 40px; }
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .testimonial-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(0, 243, 255, 0.3);
-      border-radius: 12px;
-      padding: 20px;
-      color: #e0f7fa;
-    }
-    .testimonial-img {
-      width: 80px; height: 80px; border-radius: 50%;
-      margin-bottom: 15px; border: 2px solid #00f3ff; object-fit: cover;
-    }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .testimonial-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(0,243,255,0.3); border-radius: 12px; padding: 20px; }
+    .testimonial-img { width: 70px; height: 70px; border-radius: 50%; margin-bottom: 10px; border: 2px solid #00f3ff; object-fit: cover; }
 
     /* Contact + Form */
-    .contact {
-      padding: 4rem 10%;
-      background: #0f0f0f;
-      text-align: center;
-    }
+    .contact { padding: 4rem 10%; background: #0f0f0f; text-align: center; }
     .contact h2 { color: #00f3ff; margin-bottom: 1rem; }
     .contact p { margin-bottom: 2rem; color: #b0dfe8; }
-    form {
-      max-width: 700px; margin: 0 auto; text-align: left;
-    }
+    form { max-width: 600px; margin: 0 auto; text-align: left; }
     form input, form textarea {
       width: 100%; padding: 1rem; margin-bottom: 1rem;
       background: #121212; border: 1px solid #222;
       border-radius: 8px; color: #e0f7fa;
     }
-    form button {
-      padding: 0.8rem 1.6rem;
-      background: #00bcd4; color: #121212;
-      border-radius: 5px; font-weight: bold;
-    }
+    form button { padding: 0.8rem 1.6rem; background: #00bcd4; color: #121212; border-radius: 5px; font-weight: bold; }
+    .contact-links { margin-top: 1.5rem; }
+    .contact-links a { display: block; margin: 0.5rem 0; color: #00f3ff; }
 
-    footer {
-      text-align: center; padding: 1.5rem;
-      background: #121212; border-top: 1px solid #333;
-      font-size: 0.9rem; color: #9bd6df;
-    }
+    footer { text-align: center; padding: 1.5rem; background: #121212; border-top: 1px solid #333; font-size: 0.9rem; color: #9bd6df; }
   </style>
 </head>
 <body>
@@ -231,6 +162,7 @@
       <h1>IC3Expert</h1>
       <p>Blockchain Investigation Agency</p>
     </div>
+    <i class="fas fa-bars menu-toggle"></i>
     <nav>
       <a href="#services">Services</a>
       <a href="#about">About</a>
@@ -239,12 +171,13 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <canvas id="binary-canvas"></canvas>
     <div class="hero-content">
       <h2>IT & Cyber Security</h2>
       <h3>Stay Secure, Stay Ahead in a Connected World.</h3>
-      <p>Imagine running your business with complete digital confidence. That’s the promise of <strong>IC3Expert</strong>. We don’t just react to threats; our advanced cybersecurity solutions are engineered to predict, prevent, and neutralize the ever-evolving landscape of cyber risks.</p>
+      <p>At <strong>IC3Expert</strong>, we don’t just react to threats; we predict, prevent, and neutralize the ever-evolving landscape of cyber risks.</p>
       <a href="#case-form" class="btn-primary">Open a Case</a>
     </div>
   </section>
@@ -264,12 +197,10 @@
       <h2>Your Trusted Partner in Cyber Defense</h2>
       <p>At <strong>IC3Expert</strong>, we deliver resilient protection and trusted defense strategies to safeguard your digital world.</p>
     </div>
-    <div class="about-img">
-      <img src="my-it-professional.png" alt="IT Professional">
-    </div>
+    <div class="about-img"><img src="my-it-professional.png" alt="IT Professional"></div>
   </section>
 
-  <!-- Core Values / Vision / Mission / Motto -->
+  <!-- Values -->
   <section class="values">
     <h2>Our Values & Vision</h2>
     <div class="value-grid">
@@ -285,9 +216,9 @@
   <section class="testimonials">
     <h2>What Our Clients Say</h2>
     <div class="testimonial-grid">
-      <div class="testimonial-card"><img src="client1.jpg" class="testimonial-img"><p>“I was scammed and lost $55,000 worth of crypto—it was devastating. That changed when I was introduced to IC3Expert, who helped me recover my funds.”</p><h4>– Michael R.</h4></div>
-      <div class="testimonial-card"><img src="client2.jpg" class="testimonial-img"><p>“I lost access to my USDT due to a phishing attack. IC3Expert investigated and successfully retrieved my funds. Professional and dedicated.”</p><h4>– Sophia L.</h4></div>
-      <div class="testimonial-card"><img src="client3.jpg" class="testimonial-img"><p>“Hackers drained my wallet—I thought all hope was gone. IC3Expert traced transactions and helped me recover my funds.”</p><h4>– Daniel K.</h4></div>
+      <div class="testimonial-card"><img src="client1.jpg" class="testimonial-img"><p>“I was scammed and lost $55,000 worth of crypto. IC3Expert helped me recover my funds.”</p><h4>– Michael R.</h4></div>
+      <div class="testimonial-card"><img src="client2.jpg" class="testimonial-img"><p>“I lost access to my USDT. IC3Expert investigated and successfully retrieved my funds.”</p><h4>– Sophia L.</h4></div>
+      <div class="testimonial-card"><img src="client3.jpg" class="testimonial-img"><p>“Hackers drained my wallet—I thought all hope was gone. IC3Expert traced transactions and recovered my funds.”</p><h4>– Daniel K.</h4></div>
     </div>
   </section>
 
@@ -303,7 +234,10 @@
       <textarea rows="5" placeholder="Reason for opening a case or how you got scammed" required></textarea>
       <button type="submit">Submit Case</button>
     </form>
-    <p>Contact us: icrg.recovery@gmail.com | WhatsApp: +1 (567) 403-9470</p>
+    <div class="contact-links">
+      <a href="mailto:icrg.recovery@gmail.com"><i class="fas fa-envelope"></i> icrg.recovery@gmail.com</a>
+      <a href="https://wa.me/15674039470" target="_blank"><i class="fab fa-whatsapp"></i> +1 (567) 403-9470</a>
+    </div>
   </section>
 
   <footer><p>&copy; 2025 IC3Expert. All rights reserved.</p></footer>
@@ -335,6 +269,11 @@
       canvas.height = window.innerHeight;
       canvas.width = window.innerWidth;
     });
+
+    // Mobile Nav Toggle
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("nav");
+    menuToggle.addEventListener("click", () => { nav.classList.toggle("active"); });
   </script>
 </body>
 </html>
